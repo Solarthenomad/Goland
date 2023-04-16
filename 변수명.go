@@ -31,7 +31,7 @@ start :=1
 //이미 선언된 변수에 값을 할당할 때는 :=를 사용하는 것이 불가능
 //:=는 변수 선언과 동시에 초깃값을 할당할 때만 사용 
 
-if v:= getValue() {
+if v:= getValue() {  //var 타입 선어 변수에는 함수 선언과 동시에 함수에 대한 작성 가능 
 	fmt.Println(v)
 }
 
@@ -79,15 +79,15 @@ const (
 
 //iota를 쓰면 위와같은 개고생을 할필요가 없음
 const (
-	Sunday = iota
-	Monday
-	Tuesday
-	Thursday
-	Friday
-	Saturday
+	Sunday = iota  //0
+	Monday  //1
+	Tuesday //2
+	Thursday //3
+	Friday //4
+	Saturday  //5
 )
 
-type Color int 
+type Color int  //그룹 타입 선언하기
 
 const (
 	RED Color = iota  //0 : 새로운 const Group인 Color이 선언되었으므로 0부터 시작하게 됨 
