@@ -60,5 +60,64 @@ case 1, 2 :
 // 일치하는 case 조건을 만나면 바로 switch 문을 빠져나오므로 switch 문에는 break를 쓰지 않아도 된다
 //. 일치하는 조건을 만났지만 switch 문을 빠져나오지 않고 다음 case로 넘어가려면 fallthrough를 표기해야 한다.
 
+switch i {
+case 0: //i가 0일 때 아무것도 하지 않고 나감
+case 1: //i가 1일떄만
+    f() //수행한다.
+}
 
+switch i {
+case 0:
+	fallthrough
+case 1:
+	f()  //결국 f함수는 i가 0,1일 때 모두 수행하는 것임
+}
+
+
+
+switch level {
+case 1:
+	doFirst()   //doFirst는 레벨 1일 때 수행함
+	fallthrough
+case 2:
+	doSecond()  //레벨 1,2는 doSecond를 수행함
+	fallthrough
+case 3:
+	doThird() //레벨 1,2,3은 doThird를 수행함
+}
+
+//for 문
+// 다른 언어와 다르게 go는 while이 없음. 모든 조건문은 다 for문으로 작성해준다. 
+
+
+//for 초기화구문;조건식;후속작업 {
+//	..어쩌구저쩌구
+//}
+
+//for {
+//
+//}
+//이렇게 되면 for 문 내부의 코드를 무한반복하게 됨 
+
+//break & Continue
+//for 문을 강제로 종료해야 할 때는 break 키워드를 사용한다. 현재 수행하는 반복 작업을 건너뛰고 다음 반복 작업을 수행해야 할 때는 continue 키워드를 사용한다.
+
+for {
+	i = i-1 
+	...
+	if i<0 {
+		break
+	}
+	if i%2 == 0 {
+		continue
+	}
+}
+for {
+	i = i+1 
+	if i >100 {
+		break
+	} if i % 2 == 0 {
+		continue
+	}
+}
 
